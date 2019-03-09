@@ -21,27 +21,31 @@ extra-source-files:
 description:         Please see the README on GitHub at <https://github.com/{{github-username}}{{^github-username}}githubuser{{/github-username}}/{{name}}#readme>
 
 dependencies:
-- base >= 4.7 && < 5
-- containers
-- fmt
-- text
+- base >= 4.10 && < 10
+- rio  >= 0.1.1.0
+- fmt  >= 0.4.0.0
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wredundant-constraints
 
 library:
   source-dirs: src
-  ghc-options:
-  - -Wall
 
 executables:
   {{name}}-exe:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
-    - -Wall
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
     - {{name}}
+    - optparse-applicative
 
 tests:
   {{name}}-test:
@@ -53,6 +57,9 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - {{name}}
+    - tasty
+    - tasty-hunit
+    - tasty-smallcheck
 
 {-# START_FILE Setup.hs #-}
 import Distribution.Simple
