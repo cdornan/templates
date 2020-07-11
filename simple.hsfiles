@@ -22,8 +22,7 @@ description:         Please see the README on GitHub at <https://github.com/{{gi
 
 dependencies:
 - base >= 4.10 && < 10
-- rio  >= 0.1.1.0
-- fmt  >= 0.4.0.0
+- fmt
 
 ghc-options:
 - -Wall
@@ -127,7 +126,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 {-# START_FILE .gitignore #-}
 .stack-work/
-{{name}}.cabal
 *~
 
 {-# START_FILE .ghci #-}
